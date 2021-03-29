@@ -106,8 +106,8 @@
 		}
 		
 		private function hashingPassword(){
-			// I'm using BCRYPT for hashing:
-			$this->persoenlicheDaten_passwort = password_hash($this->persoenlicheDaten_passwort, PASSWORD_DEFAULT);
+			// I'm using ARGON2ID for hashing:
+			$this->persoenlicheDaten_passwort = password_hash($this->persoenlicheDaten_passwort, PASSWORD_ARGON2ID);
 		}
 		
 		private function storingImageAfterUpload(){		
