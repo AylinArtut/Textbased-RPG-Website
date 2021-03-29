@@ -1,5 +1,12 @@
 # UselessWebsite
 
+Eine Webseite, die mit PHP + jQuery (JavaScript) + HTML + CSS + viel Langeweile während der Pandemie erstellt wird. :blush:
+
+-------------------------------------------------------------------------------------------------------------------
+
+Registrierung:
+![alt text](https://s8.directupload.net/images/210329/e6diasnc.jpg) 
+
 (Projektbeschreibung folgt noch)
 
 Datenbank-Struktur schaut nun so aus:
