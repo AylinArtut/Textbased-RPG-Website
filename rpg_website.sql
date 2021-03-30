@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 27. Mrz 2021 um 20:12
+-- Erstellungszeit: 30. Mrz 2021 um 02:14
 -- Server-Version: 10.4.18-MariaDB
 -- PHP-Version: 7.3.27
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 
 --
 -- Datenbank: `rpg_website`
+CREATE DATABASE rpg_website;
+use rpg_website;
 --
 
 -- --------------------------------------------------------
@@ -110,18 +112,6 @@ INSERT INTO `geschlecht` (`ID`, `Geschlecht`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `hobbys`
---
-
-CREATE TABLE `hobbys` (
-  `ID` int(11) NOT NULL,
-  `PersoenlicheDaten_ID` int(11) NOT NULL,
-  `Hobby` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Tabellenstruktur für Tabelle `kontaktmoeglichkeiten`
 --
 
@@ -168,7 +158,7 @@ CREATE TABLE `persoenliche_daten` (
   `Geburtstag` datetime NOT NULL,
   `Geschlecht_ID` int(11) NOT NULL,
   `Beziehungsstatus_ID` int(11) NOT NULL,
-  `Hobbys_ID` int(11) NOT NULL,
+  `Hobbys` varchar(200) NOT NULL,
   `Kontaktmöglichkeiten_ID` int(11) NOT NULL,
   `Sonstiges` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -223,13 +213,6 @@ ALTER TABLE `geschlecht`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indizes für die Tabelle `hobbys`
---
-ALTER TABLE `hobbys`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `PersoenlicheDaten_ID` (`PersoenlicheDaten_ID`);
-
---
 -- Indizes für die Tabelle `kontaktmoeglichkeiten`
 --
 ALTER TABLE `kontaktmoeglichkeiten`
@@ -249,7 +232,6 @@ ALTER TABLE `persoenliche_daten`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Geschlecht_ID` (`Geschlecht_ID`),
   ADD KEY `Beziehungsstatus_ID` (`Beziehungsstatus_ID`),
-  ADD KEY `Hobbys_ID` (`Hobbys_ID`),
   ADD KEY `Kontaktmöglichkeiten_ID` (`Kontaktmöglichkeiten_ID`);
 
 --
@@ -287,12 +269,6 @@ ALTER TABLE `geschlecht`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT für Tabelle `hobbys`
---
-ALTER TABLE `hobbys`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT für Tabelle `kontaktmoeglichkeiten`
 --
 ALTER TABLE `kontaktmoeglichkeiten`
@@ -323,12 +299,6 @@ ALTER TABLE `charakter_daten`
   ADD CONSTRAINT `charakter_daten_ibfk_3` FOREIGN KEY (`Rasse_ID`) REFERENCES `rasse` (`ID`);
 
 --
--- Constraints der Tabelle `hobbys`
---
-ALTER TABLE `hobbys`
-  ADD CONSTRAINT `hobbys_ibfk_1` FOREIGN KEY (`PersoenlicheDaten_ID`) REFERENCES `persoenliche_daten` (`ID`);
-
---
 -- Constraints der Tabelle `persoenlichedaten_kontaktmoeglichkeiten`
 --
 ALTER TABLE `persoenlichedaten_kontaktmoeglichkeiten`
@@ -341,7 +311,6 @@ ALTER TABLE `persoenlichedaten_kontaktmoeglichkeiten`
 ALTER TABLE `persoenliche_daten`
   ADD CONSTRAINT `persoenliche_daten_ibfk_1` FOREIGN KEY (`Geschlecht_ID`) REFERENCES `geschlecht` (`ID`),
   ADD CONSTRAINT `persoenliche_daten_ibfk_2` FOREIGN KEY (`Beziehungsstatus_ID`) REFERENCES `beziehungsstatus` (`ID`),
-  ADD CONSTRAINT `persoenliche_daten_ibfk_3` FOREIGN KEY (`Hobbys_ID`) REFERENCES `hobbys` (`ID`),
   ADD CONSTRAINT `persoenliche_daten_ibfk_4` FOREIGN KEY (`Kontaktmöglichkeiten_ID`) REFERENCES `kontaktmoeglichkeiten` (`ID`);
 COMMIT;
 

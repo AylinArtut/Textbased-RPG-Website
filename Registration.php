@@ -80,7 +80,7 @@
 			// There's no need for escaping, when using PDO. At least, the safest way from SQL injection I know:
 			
 			// Making an instance of PDO & I will put these four database-information to another file later:
-			$pdo = new PDO('mysql:host=localhost;dbname=website', 'root', '');
+			$pdo = new PDO('mysql:host=localhost;dbname=rpg_website', 'root', '');
 			
 			$persoenliche_daten_query = "INSERT INTO persoenliche_daten (Vorname, EMail, Passwort, Geburtstag, Geschlecht_ID, Beziehungsstatus_ID, Hobbys, Kontaktmoeglichkeiten_ID, Sonstiges) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";			
             $charakter_daten_query = "INSERT INTO charakter_daten (Vorname, Nachname, Spitzname, Altersklasse_ID, GenauesAlter, Geschlecht_ID, Rasse_ID, Persoenlichkeit, Lebensgeschichte, Aussehen, BesondereMerkmale, Kleidung, Bildpfad, Lebensmotto, Sonstiges) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
