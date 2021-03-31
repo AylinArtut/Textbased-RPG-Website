@@ -82,7 +82,7 @@
 			// Making an instance of PDO & I will put these four database-information to another file later:
 			$pdo = new PDO('mysql:host=localhost;dbname=rpg_website', 'root', '');
 			
-			$persoenliche_daten_query = "INSERT INTO persoenliche_daten (Vorname, EMail, Passwort, Geburtstag, Geschlecht_ID, Beziehungsstatus_ID, Hobbys, Kontaktmoeglichkeiten_ID, Sonstiges) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";			
+			$persoenliche_daten_query = "INSERT INTO persoenliche_daten (Vorname, E-Mail, Passwort, Geburtstag, Geschlecht_ID, Beziehungsstatus_ID, Hobbys, Kontaktmoeglichkeiten_ID, Sonstiges) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";			
             $charakter_daten_query = "INSERT INTO charakter_daten (Vorname, Nachname, Spitzname, Altersklasse_ID, GenauesAlter, Geschlecht_ID, Rasse_ID, Persoenlichkeit, Lebensgeschichte, Aussehen, BesondereMerkmale, Kleidung, Bildpfad, Lebensmotto, Sonstiges) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
             $prepare_persoenliche_daten = $pdo->prepare($persoenliche_daten_query);	
@@ -124,6 +124,22 @@
 			
 			// Now, the "path" from new image with its new name will be stored in "$charakter_bildpfad" (to store it to db later):	
 			$this->charakter_bildpfad = $file_storing;
+		}
+		
+		function checking_CharakterVorname_Username_Availability(){
+			// I will seperate database connection stuff later:
+			$pdo = new PDO('mysql:host=localhost;dbname=rpg_website', 'root', '');
+				
+			$sql = "SELECT Vorname FROM charakter_daten";
+
+			foreach ($pdo->query($sql) as $row) {
+				if($row['Vorname'] == $_POST['user_name']){
+					// I will improve this funny part:
+					echo "NO";
+				}else{
+					echo "YES";
+				}				
+			}	
 		}
 	}
 ?>

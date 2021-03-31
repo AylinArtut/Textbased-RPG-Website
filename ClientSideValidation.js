@@ -11,6 +11,7 @@ $(document).ready(function() {
 	var persoenlicheDaten_email_errorMessage = false;
 	var persoenlicheDaten_passwort_errorMessage = false;
 	var charakter_vorname_errorMessage = false;
+	var charakter_vorname_errorMessage2 = false;
 	
 	// When I leave "email"-field, after entering it, my method will be called:	
 	$('#persoenlicheDaten_email').focusout(function(){
@@ -70,13 +71,36 @@ $(document).ready(function() {
 	
 	// ------------------------------------------------------------------------------------------------------------------------
 	
+	// Here I'm using an AJAX request to check, if entered username (which is my "charakter vorname") is already taken:
+	$('#charakter_vorname').blur(function(){
+		var charakterVorname_username = $(this).val();
+		$.ajax({
+			url: "Main.php",
+			method: "POST",
+			data: {user_name: charakterVorname_username},
+			dataType: "text",
+			success: function(data){
+				// It's a dirty solution, which I will improve later:
+				if(data.includes("NO")){
+					$('#charakter_vorname_errorMessage2').html('Charakter Vorname ist bereits vergeben.');
+					charakter_vorname_errorMessage2 = true;
+				}else{
+					$('#charakter_vorname_errorMessage2').html('Charakter Vorname ist verfügbar.')
+					charakter_vorname_errorMessage2 = false;
+				}
+			}
+		});
+	});
+	
+	// ------------------------------------------------------------------------------------------------------------------------
+	
 	// When there's still an error message, the form will not be send:
 	$('#registration_formular').submit(function(){		
 		validateEmail();
 		validatePassword();
 		validateCharacterName();
 		
-		if(charakter_vorname_errorMessage == false && persoenlicheDaten_passwort_errorMessage == false && persoenlicheDaten_email_errorMessage == false){
+		if(charakter_vorname_errorMessage2 == false && charakter_vorname_errorMessage == false && persoenlicheDaten_passwort_errorMessage == false && persoenlicheDaten_email_errorMessage == false){
 			return true;
 		}else{
 			return false;
