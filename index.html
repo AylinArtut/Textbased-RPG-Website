@@ -4,6 +4,7 @@
 	<meta charset="utf-8"/>
 	<title>Schlechteste Website im I-net</title>
 	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="ClientSideValidation.css">
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 	<script language="javascript" type="text/javascript" src="LoadWebsiteContent.js"></script>
 	<script language="javascript" type="text/javascript" src="ClientSideValidation.js"></script>
@@ -27,7 +28,7 @@
 		
 		    <!-- I will put registration-stuff somewhere else later. -->
 			<div id="registration">
-				<form action="Main.php" method="POST" enctype="multipart/form-data">
+				<form id="registration_formular" action="Main.php" method="POST" enctype="multipart/form-data">
 			
 				<h1><b>Registrierung</b></h1>
 				
@@ -38,23 +39,23 @@
 				
 				<p>E-Mail*:<br>
 				<input type="email" id="persoenlicheDaten_email" name="persoenlicheDaten_email"></p>
+				<span id="persoenlicheDaten_email_errorMessage"></span>
 				
 				<p>Passwort*:<br>
 				<input type="password" id="persoenlicheDaten_passwort" name="persoenlicheDaten_passwort"></p>
+				<span id="persoenlicheDaten_passwort_errorMessage"></span>
 				
 				<p>Geburtstag:<br>
 				<input type="text" id="persoenlicheDaten_geburtstag" name="persoenlicheDaten_geburtstag"></p>
 				
 				<p>Geschlecht:<br>
 				<select id="persoenlicheDaten_geschlecht" name="persoenlicheDaten_geschlecht">
-				<option value="geschlecht_leer"></option>
 					<option value="1">männlich</option>
 					<option value="2">weiblich</option>
 				</select></p>
 				
 				<p>Beziehungsstatus:<br>
 				<select id="persoenlicheDaten_beziehungsstatus" name="persoenlicheDaten_beziehungsstatus">
-				<option value="beziehungsstatus_leer"></option>
 					<option value="1">single</option>
 					<option value="2">vergeben</option>
 					<option value="3">verlobt</option>
@@ -97,6 +98,7 @@
 				
 				<p>Vorname* (wird zum Usernamen):<br>
 				<input type="text" id="charakter_vorname" name="charakter_vorname"></p>
+				<span id="charakter_vorname_errorMessage"></span>
 				
 				<p>Nachname:<br>
 				<input type="text" id="charakter_nachname" name="charakter_nachname"></p>
