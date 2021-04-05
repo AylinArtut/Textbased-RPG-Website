@@ -45,6 +45,10 @@ body{
 	padding-right: 2%;
 }
 
+#login{
+	float: right;
+}
+
 #contentText{
 	padding-left: 2%;
 	padding-right: 2%;
