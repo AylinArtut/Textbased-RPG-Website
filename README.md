@@ -9,7 +9,7 @@ Die Optik der Webseite wird sich auch noch ändern.
 -------------------------------------------------------------------------------------------------------------------
 
 Registrierung:
-![alt text](https://s8.directupload.net/images/210329/e6diasnc.jpg) 
+![alt text](https://s18.directupload.net/images/210405/7viw9ryz.jpg) 
 
 
 Datenbank-Struktur schaut nun so aus:
