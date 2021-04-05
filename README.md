@@ -8,7 +8,7 @@ Die Optik der Webseite wird sich auch noch ändern.
 
 -------------------------------------------------------------------------------------------------------------------
 
-Registrierung:
+Mit Login und Registrierung:
 ![alt text](https://s18.directupload.net/images/210405/7viw9ryz.jpg) 
 
 
