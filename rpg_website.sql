@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 30. Mrz 2021 um 02:14
+-- Erstellungszeit: 05. Apr 2021 um 16:36
 -- Server-Version: 10.4.18-MariaDB
 -- PHP-Version: 7.3.27
 
@@ -112,48 +112,13 @@ INSERT INTO `geschlecht` (`ID`, `Geschlecht`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `kontaktmoeglichkeiten`
---
-
-CREATE TABLE `kontaktmoeglichkeiten` (
-  `ID` int(11) NOT NULL,
-  `Kontaktmoeglichkeit` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `kontaktmoeglichkeiten`
---
-
-INSERT INTO `kontaktmoeglichkeiten` (`ID`, `Kontaktmoeglichkeit`) VALUES
-(1, 'Discord'),
-(2, 'Skype'),
-(3, 'Facebook'),
-(4, 'Instagram'),
-(5, 'Twitter'),
-(6, 'Webseite'),
-(7, 'GitHub');
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `persoenlichedaten_kontaktmoeglichkeiten`
---
-
-CREATE TABLE `persoenlichedaten_kontaktmoeglichkeiten` (
-  `Kontaktmoeglichkeiten_ID` int(11) NOT NULL,
-  `PersoenlicheDaten_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Tabellenstruktur für Tabelle `persoenliche_daten`
 --
 
 CREATE TABLE `persoenliche_daten` (
   `ID` int(11) NOT NULL,
   `Vorname` varchar(30) NOT NULL,
-  `E-Mail` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
   `Passwort` varchar(200) NOT NULL,
   `Geburtstag` datetime NOT NULL,
   `Geschlecht_ID` int(11) NOT NULL,
@@ -213,26 +178,12 @@ ALTER TABLE `geschlecht`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indizes für die Tabelle `kontaktmoeglichkeiten`
---
-ALTER TABLE `kontaktmoeglichkeiten`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indizes für die Tabelle `persoenlichedaten_kontaktmoeglichkeiten`
---
-ALTER TABLE `persoenlichedaten_kontaktmoeglichkeiten`
-  ADD KEY `PersoenlicheDaten_ID` (`PersoenlicheDaten_ID`),
-  ADD KEY `Kontaktmoeglichkeiten_ID` (`Kontaktmoeglichkeiten_ID`);
-
---
 -- Indizes für die Tabelle `persoenliche_daten`
 --
 ALTER TABLE `persoenliche_daten`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Geschlecht_ID` (`Geschlecht_ID`),
-  ADD KEY `Beziehungsstatus_ID` (`Beziehungsstatus_ID`),
-  ADD KEY `Kontaktmöglichkeiten_ID` (`Kontaktmöglichkeiten_ID`);
+  ADD KEY `Beziehungsstatus_ID` (`Beziehungsstatus_ID`);
 
 --
 -- Indizes für die Tabelle `rasse`
@@ -269,12 +220,6 @@ ALTER TABLE `geschlecht`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT für Tabelle `kontaktmoeglichkeiten`
---
-ALTER TABLE `kontaktmoeglichkeiten`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT für Tabelle `persoenliche_daten`
 --
 ALTER TABLE `persoenliche_daten`
@@ -299,19 +244,11 @@ ALTER TABLE `charakter_daten`
   ADD CONSTRAINT `charakter_daten_ibfk_3` FOREIGN KEY (`Rasse_ID`) REFERENCES `rasse` (`ID`);
 
 --
--- Constraints der Tabelle `persoenlichedaten_kontaktmoeglichkeiten`
---
-ALTER TABLE `persoenlichedaten_kontaktmoeglichkeiten`
-  ADD CONSTRAINT `persoenlichedaten_kontaktmoeglichkeiten_ibfk_1` FOREIGN KEY (`PersoenlicheDaten_ID`) REFERENCES `persoenliche_daten` (`ID`),
-  ADD CONSTRAINT `persoenlichedaten_kontaktmoeglichkeiten_ibfk_2` FOREIGN KEY (`Kontaktmoeglichkeiten_ID`) REFERENCES `kontaktmoeglichkeiten` (`ID`);
-
---
 -- Constraints der Tabelle `persoenliche_daten`
 --
 ALTER TABLE `persoenliche_daten`
   ADD CONSTRAINT `persoenliche_daten_ibfk_1` FOREIGN KEY (`Geschlecht_ID`) REFERENCES `geschlecht` (`ID`),
-  ADD CONSTRAINT `persoenliche_daten_ibfk_2` FOREIGN KEY (`Beziehungsstatus_ID`) REFERENCES `beziehungsstatus` (`ID`),
-  ADD CONSTRAINT `persoenliche_daten_ibfk_4` FOREIGN KEY (`Kontaktmöglichkeiten_ID`) REFERENCES `kontaktmoeglichkeiten` (`ID`);
+  ADD CONSTRAINT `persoenliche_daten_ibfk_2` FOREIGN KEY (`Beziehungsstatus_ID`) REFERENCES `beziehungsstatus` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
