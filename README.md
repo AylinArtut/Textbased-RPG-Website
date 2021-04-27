@@ -4,7 +4,7 @@ Eine Webseite, die mit PHP + jQuery (JavaScript) + HTML + CSS + viel Langeweile 
 
 (Nähere Projektbeschreibung folgt noch) :blush:
 
-Die Optik der Webseite wird sich auch noch ändern.
+Die Optik der Webseite wird sich auch noch ändern. :)
 
 -------------------------------------------------------------------------------------------------------------------
 
