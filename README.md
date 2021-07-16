@@ -4,7 +4,7 @@ Meine "Useless" Webseite ist in PHP, jQuery (JavaScript), HTML, sowie CSS geschr
 
 Diese Webseite entwickelt sich stückweise zu einem textbasierten Rollenspiel, welches durch registrierte Benutzer gespielt werden soll. Sobald das gewünschte Produkt erreicht ist, erweitere ich diese durch ein ein kleines Content Management System (CMS). :blossom:
 
-Parallel eigne ich mir Knowhow bezüglich Websicherheit an, sodass vor Inbetriebnahme der Webapplikation auch dieser Bereich abgedeckt ist. :cactus: :cherries:
+Parallel eigne ich mir Knowhow bezüglich Websicherheit an, sodass vor Inbetriebnahme der Webapplikation auch dieser Bereich abgedeckt ist.
 
 -------------------------------------------------------------------------------------------------------------------
 
