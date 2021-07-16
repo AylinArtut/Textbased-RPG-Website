@@ -1,16 +1,13 @@
 # UselessWebsite
 
-Eine Webseite, die mit PHP + jQuery (JavaScript) + HTML + CSS + viel Langeweile während der Pandemie erstellt wird. 
+Meine "Useless" Webseite ist in PHP, jQuery (JavaScript), HTML, sowie CSS geschrieben und dient mir als Freizeitbeschäftigung.
 
-(Nähere Projektbeschreibung folgt noch) :blush:
+Heutzutage sind Frameworks bezüglich Webseiten nicht hinweg zu denken, aber ich bevorzuge es vorerst vor Nutzung von Frameworks zu verstehen, welche und vorallem wie viel Arbeit einem dabei jeweils abgenommen wird.
 
-Die Optik der Webseite wird sich auch noch ändern. :)
+Diese Webseite entwickelt sich stückweise zu einem textbasierten Rollenspiel, welches durch registrierte Benutzer gespielt werden soll. Sobald das gewünschte Produkt erreicht ist, erweitere ich diese durch ein ein kleines Content Management System (CMS).
+
+Parallel eigne ich mir Knowhow bezüglich Websicherheit an, sodass vor Inbetriebnahme der Webapplikation auch dieser Bereich abgedeckt ist.
 
 -------------------------------------------------------------------------------------------------------------------
 
-Mit Login und Registrierung:
 ![alt text](https://s18.directupload.net/images/210405/7viw9ryz.jpg) 
-
-
-Datenbank-Struktur schaut nun so aus:
-![alt text](https://s18.directupload.net/images/210327/484nuas8.jpg) 
