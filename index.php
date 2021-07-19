@@ -25,7 +25,6 @@ require_once("Navigation.php");
 		<div id="navigation">
 			<ul>
                 <?php
-
                     $databaseConnection = new DatabaseConnection();
                     $navigation = $databaseConnection->getConnectionToDatabase();
 
@@ -36,19 +35,19 @@ require_once("Navigation.php");
                         //getting navigation for both (logged in + not logged in):
                         foreach ($navigation->query($sql->getNavigation(0)) as $row) {
                             ?>
-                            <li><a id= <?php echo $row["Bezeichnung"] ?> ".html"> <?php echo $row["Bezeichnung"] ?> </a></li>
+                            <li><a id= <?php echo $row["Bezeichnung"] ?> ".php"> <?php echo $row["Bezeichnung"] ?> </a></li>
                             <?php
                         }
                         foreach ($navigation->query($sql->getNavigation(1)) as $row) {
                             ?>
-                            <li><a id= <?php echo $row["Bezeichnung"] ?> ".html"> <?php echo $row["Bezeichnung"] ?> </a></li>
+                            <li><a id= <?php echo $row["Bezeichnung"] ?> ".php"> <?php echo $row["Bezeichnung"] ?> </a></li>
                             <?php
                         }
                     }else{
                         //getting navigation for "not logged" in user (with ID = 0):
                         foreach ($navigation->query($sql->getNavigation(0)) as $row) {
                             ?>
-                            <li><a id= <?php echo $row["Bezeichnung"] ?> ".html"> <?php echo $row["Bezeichnung"] ?> </a></li>
+                            <li><a id= <?php echo $row["Bezeichnung"] ?> ".php"> <?php echo $row["Bezeichnung"] ?> </a></li>
                             <?php
                         }
                     }
