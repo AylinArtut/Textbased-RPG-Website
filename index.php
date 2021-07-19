@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+require_once("DatabaseConnection.php");
+require_once("Navigation.php");
+
+?>
 <html>
 <head>
 	<!-- I will improve everything on that cute page later! -->
@@ -17,10 +24,35 @@
 		 <!-- I will improve this part later. -->
 		<div id="navigation">
 			<ul>
-				<li><a id="Home">Home</a></li>
-				<li><a id="Bullshit">Bullshit</a></li>
-				<li><a id="AnotherOne">AnotherOne</a></li>
-				<li><a id="Miau">Miau</a></li>
+                <?php
+
+                    $databaseConnection = new DatabaseConnection();
+                    $navigation = $databaseConnection->getConnectionToDatabase();
+
+                    $sql = new Navigation($navigation);
+
+                    // I detect if user is logged in or not via Sessions & then I get navigation for correct access (stored in db):
+                    if((isset($_SESSION['login'])) && (!empty(session_id()))){
+                        //getting navigation for both (logged in + not logged in):
+                        foreach ($navigation->query($sql->getNavigation(0)) as $row) {
+                            ?>
+                            <li><a id= <?php echo $row["Bezeichnung"] ?> ".html"> <?php echo $row["Bezeichnung"] ?> </a></li>
+                            <?php
+                        }
+                        foreach ($navigation->query($sql->getNavigation(1)) as $row) {
+                            ?>
+                            <li><a id= <?php echo $row["Bezeichnung"] ?> ".html"> <?php echo $row["Bezeichnung"] ?> </a></li>
+                            <?php
+                        }
+                    }else{
+                        //getting navigation for "not logged" in user (with ID = 0):
+                        foreach ($navigation->query($sql->getNavigation(0)) as $row) {
+                            ?>
+                            <li><a id= <?php echo $row["Bezeichnung"] ?> ".html"> <?php echo $row["Bezeichnung"] ?> </a></li>
+                            <?php
+                        }
+                    }
+                ?>
 			</ul> 	
 		</div>
 		<div id="login">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 05. Apr 2021 um 16:36
+-- Erstellungszeit: 19. Jul 2021 um 15:30
 -- Server-Version: 10.4.18-MariaDB
 -- PHP-Version: 7.3.27
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 
 --
 -- Datenbank: `rpg_website`
-CREATE DATABASE rpg_website;
-use rpg_website;
 --
 
 -- --------------------------------------------------------
@@ -90,6 +88,14 @@ CREATE TABLE `charakter_daten` (
   `Sonstiges` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Daten für Tabelle `charakter_daten`
+--
+
+INSERT INTO `charakter_daten` (`ID`, `Vorname`, `Nachname`, `Spitzname`, `Altersklasse_ID`, `Genaues_Alter`, `Geschlecht_ID`, `Rasse_ID`, `Persoenlichkeit`, `Lebensgeschichte`, `Aussehen`, `Besondere_Merkmale`, `Kleidung`, `Bildpfad`, `Lebensmotto`, `Sonstiges`) VALUES
+(1, 'Hans', 'Meier', 'Hansi', 1, 30, 1, 1, 'Schüchtern', 'War mal klein und wurde groß.', 'Sieht toll aus', 'Keine', 'Gut gekleidet', 'Images/Profile_Images/Hans.jpg', 'Immer glücklich sein.', 'Nichts.'),
+(2, 'Maria', 'Schulze', 'Schulzi', 3, 22, 2, 1, 'faul', 'Keine', 'brilliant', 'keine', 'keine', 'Images/Profile_Images/Maria.jpg', 'rwrwrwrw', 'rwrwrwrwrw');
+
 -- --------------------------------------------------------
 
 --
@@ -112,6 +118,29 @@ INSERT INTO `geschlecht` (`ID`, `Geschlecht`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `navigation`
+--
+
+CREATE TABLE `navigation` (
+  `ID` int(11) NOT NULL,
+  `Bezeichnung` varchar(50) DEFAULT NULL,
+  `Status` tinyint(1) DEFAULT NULL COMMENT 'TRUE = eingeloggt = 1,\r\nFALSE = nichtEin. = 0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `navigation`
+--
+
+INSERT INTO `navigation` (`ID`, `Bezeichnung`, `Status`) VALUES
+(1, 'Home', 0),
+(2, 'Bullshit', 0),
+(3, 'AnotherOne', 0),
+(4, 'Miau', 0),
+(5, 'PersoenlicheDaten', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `persoenliche_daten`
 --
 
@@ -127,6 +156,14 @@ CREATE TABLE `persoenliche_daten` (
   `Kontaktmöglichkeiten_ID` int(11) NOT NULL,
   `Sonstiges` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `persoenliche_daten`
+--
+
+INSERT INTO `persoenliche_daten` (`ID`, `Vorname`, `Email`, `Passwort`, `Geburtstag`, `Geschlecht_ID`, `Beziehungsstatus_ID`, `Hobbys`, `Kontaktmöglichkeiten_ID`, `Sonstiges`) VALUES
+(1, 'Hans', 'hans@hotmail.de', '$argon2id$v=19$m=65536,t=4,p=1$Ym5nMjBWU1VOL3lySlFSSg$yGzLfn3D+CfUOz83xPdTgkvaBI6VfPkQy5MTkcyCTeg', '0000-00-00 00:00:00', 1, 1, 'Lesen, schlafen', 0, 'Nichts besonderes.'),
+(2, 'Maria', 'maria@mail.de', '$argon2id$v=19$m=65536,t=4,p=1$NHc4TkJ6STRMaHpQcm1qdg$S9QlnlnPmwF4tmEUxDShH2ZHJ1mvkyuN0nKju7XZtQs', '0000-00-00 00:00:00', 1, 2, 'schlafen, trinken', 0, 'Nichts ...');
 
 -- --------------------------------------------------------
 
@@ -178,6 +215,12 @@ ALTER TABLE `geschlecht`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indizes für die Tabelle `navigation`
+--
+ALTER TABLE `navigation`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indizes für die Tabelle `persoenliche_daten`
 --
 ALTER TABLE `persoenliche_daten`
@@ -211,7 +254,7 @@ ALTER TABLE `beziehungsstatus`
 -- AUTO_INCREMENT für Tabelle `charakter_daten`
 --
 ALTER TABLE `charakter_daten`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT für Tabelle `geschlecht`
@@ -220,10 +263,16 @@ ALTER TABLE `geschlecht`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT für Tabelle `navigation`
+--
+ALTER TABLE `navigation`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT für Tabelle `persoenliche_daten`
 --
 ALTER TABLE `persoenliche_daten`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT für Tabelle `rasse`
