@@ -7,5 +7,13 @@ Diese Webseite entwickelt sich stückweise zu einem textbasierten Rollenspiel, w
 Parallel eigne ich mir Knowhow bezüglich Websicherheit an, sodass vor Inbetriebnahme der Webapplikation auch dieser Bereich abgedeckt ist.
 
 -------------------------------------------------------------------------------------------------------------------
+**Upcoming Feature Previews:** 
+
+
+Ich stecke noch in der Planung des Spiel-Konzeptes fest und poste die Tage erstmal nur grobe Ideen & Mockups. Nach der Ausarbeitung hätte ich auch feste Attribute für die Datenbank und könnte meine Platzhalter entfernen. :blush:
+
+-------------------------------------------------------------------------------------------------------------------
+**Screenshots:**
+
 
 ![alt text](https://s18.directupload.net/images/210405/7viw9ryz.jpg) 
