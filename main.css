@@ -1,91 +1,99 @@
 body{
-	background-image: url("Images/background.jpg");
+	background-color: DarkSeaGreen;
 }
 
-#website, #header, #navigation, #content, #footer{
-	width: 70%;
-	margin-left: auto;
-    margin-right: auto;
+.header{
+	height: 80px;
+	margin: 20px;
+	background-color: LightGrey;
+	text-align: center;
+	border-radius: 5px;
 }
 
-#website{
-	width: auto;
-	height: auto;
-	margin-top: 3%;
-	margin-bottom: 3%;
+.content{
+	margin: 20px;
+	background-color: LightGrey;
+	border-radius: 5px;
 }
 
-#header{
-	height: 20%;
-	margin-bottom: 3%;
-	background-color: grey;
-	/* "border-radius" was not looking so smooth with percentage.*/
-	border-radius: 10px;
-	font-size: 32px;
-	color: white;
+.footer{
 	text-align: center;
 }
 
-#navigation{
-	height: auto;
+.navigation{
+	width: 100%;
+	height: 7.4%;
 	background-color: grey;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-}
-
-#content{
-	height: auto;
-	background-color: white;
-	padding-top: 2%;
-	padding-bottom: 2%;
-}
-
-#registration{
-	padding-left: 2%;
-	padding-right: 2%;
-}
-
-#login{
-	float: right;
-}
-
-#contentText{
-	padding-left: 2%;
-	padding-right: 2%;
-}
-
-#footer{
-	height: 5%;
-	background-color: grey;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+	margin-bottom: 20px;
+	margin-top: 17px;
+	padding-top: 1px;
+	padding-left: 1px;
+	padding-bottom: 5px;
+	border-radius: 5px;
 }
 
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: grey;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: grey;
 }
 
 li {
-  float: left;
-  border-right:1px solid black;
+	float: left;
+	border-right:1px solid black;
 }
 
 li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  /* "font-size" with percentage causes too big values ...*/
-  font-size: 32px;
+	display: block;
+	text-align: center;
+	padding: 14px 16px;
+	/* "font-size" with percentage causes too big values ...*/
+	font-size: 28px;
 }
 
 li a:hover {
-  background-color: pink;
+	background-color: darkseagreen;
+	border-radius: 5px;
+}
+
+#contentMenu{
+	background-color: whitesmoke;
+	width: 100%;
+	height: 85.3%;
+	margin-top: 10px;
+}
+
+.menu{
+	background-color: whitesmoke;
+	margin-top: 10px;
+}
+
+.profileBox{
+	background-color: whitesmoke;
+	width: 200px;
+	height: 150px;
+	margin-bottom: 20px;
+	margin-top: -10px;
+}
+
+.gameBox{
+	background-color: whitesmoke;
+	width: 200px;
+	height: 150px;
+	margin-bottom: 20px;
+}
+
+.leftSide{
+	height: 80%;
+	display: inline-block;
+	margin: 3px 0.5px 10px 20px;
+	width: 86.2%;
+}
+
+.rightSide{
+	width: 20px;
+	height: 78.2px;
+	display: inline-block;
+	margin: 3px 1px 10px 15px;
 }
