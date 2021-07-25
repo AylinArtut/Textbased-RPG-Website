@@ -12,6 +12,18 @@ Parallel eigne ich mir Knowhow bezüglich Websicherheit an, sodass vor Inbetrieb
 
 Ich stecke noch in der Planung des Spiel-Konzeptes fest und poste die Tage erstmal nur grobe Ideen & Mockups. Nach der Ausarbeitung hätte ich auch feste Attribute für die Datenbank und könnte meine Platzhalter entfernen. :blush:
 
+**Uii, ich habe sehr alte Skizzen von mir dazu gefunden, als ich noch 0% Plan von Programmierung hatte:**
+
+Ich muss mein kleines Ich leider enttäuschen, es gebe Copyright-Probleme wenn ich die Konzepte von den Animes "One Piece" & "Naruto" übernehmen würde. Aber ich erfülle mir den Kindheitstraum mit "anderem Konzept" & setze den Rest sehr wahrscheinlich genau so um, wie auf den komischen Fotos abgebildet. :eyes:
+
+![alt text](https://s20.directupload.net/images/210725/vzs83tud.jpg) 
+
+![alt text](https://s20.directupload.net/images/210725/thjitwmc.jpg) 
+
+![alt text](https://s20.directupload.net/images/210725/ch5cu7gp.jpg) 
+
+![alt text](https://s20.directupload.net/images/210725/wkq7fmm8.jpg) 
+
 -------------------------------------------------------------------------------------------------------------------
 **Screenshots:**
 
