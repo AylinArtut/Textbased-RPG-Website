@@ -4,6 +4,7 @@
 
 ![alt text](https://s20.directupload.net/images/210725/o48wu7m7.jpg) 
 
+**Ich liebe Coding, aber kein CSS. Schlechten CSS-Code bitte ignorieren, wird später verbessert.** :poop:
 
 Meine "Useless" Webseite ist in PHP, jQuery (JavaScript), HTML, sowie CSS geschrieben und dient mir als Freizeitbeschäftigung. Heutzutage sind Frameworks bezüglich Webseiten nicht hinweg zu denken, aber ich bevorzuge es vorerst vor Nutzung von Frameworks zu verstehen, welche und vorallem wie viel Arbeit einem dabei jeweils abgenommen wird. :coffee: :wink:
 
