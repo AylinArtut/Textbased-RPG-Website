@@ -3,15 +3,15 @@ session_start();
 
 require_once("DatabaseConnection.php");
 require_once("Navigation.php");
-
+require_once("UserProfile.php");
 ?>
 <html>
 <head>
 	<!-- I will improve everything on that cute page later! -->
 	<meta charset="utf-8"/>
 	<title>Schlechteste Website im I-net</title>
-	<link rel="stylesheet" href="main.css">
-	<link rel="stylesheet" href="ClientSideValidation.css">
+	<link rel="stylesheet" href="CSS_Files/main.css">
+	<link rel="stylesheet" href="CSS_Files/ClientSideValidation.css">
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 	<script language="javascript" type="text/javascript" src="LoadWebsiteContent.js"></script>
 	<script language="javascript" type="text/javascript" src="ClientSideValidation.js"></script>
@@ -107,7 +107,23 @@ require_once("Navigation.php");
                 </div>
         </div>
         <div class="rightSide">
-            <div class="profileBox"></div>
+            <div class="profileBox">
+                <?php
+                $databaseConnection = new DatabaseConnection();
+                $userProfile = $databaseConnection->getConnectionToDatabase();
+                $sql = new UserProfile($userProfile);
+
+                // I detect if user is logged in or not via Sessions & then I get navigation for correct access (stored in db):
+                if((isset($_SESSION['login'])) && (!empty(session_id()))) {
+                    //getting navigation for both (logged in + not logged in):
+                    foreach ($userProfile->query($sql->getProfileData($_SESSION['id'])) as $row) {
+                        ?>
+                         <img src="<?php echo $row["imagepath"] ?>" width="150" height="150">
+                        <?php
+                    }
+                }
+                ?>
+            </div>
             <div class="gameBox"></div>
         </div>
         </div>
