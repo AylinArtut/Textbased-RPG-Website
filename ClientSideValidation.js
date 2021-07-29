@@ -4,27 +4,27 @@ $(document).ready(function() {
 	 */
 	
 	// First, I hide my error-html-elements:
-	$('persoenlicheDaten_email_errorMessage').hide();
-	$('persoenlicheDaten_passwort_errorMessage').hide();
-	$('charakter_vorname_errorMessage').hide();	
+	$('email_errorMessage').hide();
+	$('password_errorMessage').hide();
+    $('username_errorMessage').hide();
 
-	var persoenlicheDaten_email_errorMessage = false;
-	var persoenlicheDaten_passwort_errorMessage = false;
-	var charakter_vorname_errorMessage = false;
-	var charakter_vorname_errorMessage2 = false;
+    var email_errorMessage = false;
+	var password_errorMessage = false;
+	var username_errorMessage = false;
+	var username_errorMessage2 = false;
 	
 	// When I leave "email"-field, after entering it, my method will be called:	
-	$('#persoenlicheDaten_email').focusout(function(){
+	$('#email').focusout(function(){
 		validateEmail();
 	});
 		
 	// When I leave "password"-field, after entering it, my method will be called:
-	$('#persoenlicheDaten_passwort').focusout(function(){
+	$('#password').focusout(function(){
 		validatePassword();
 	});
 		
-	// When I leave "charakter_vorname"-field, after entering it, my method will be called:
-	$('#charakter_vorname').focusout(function(){
+	// When I leave "username"-field, after entering it, my method will be called:
+	$('#username').focusout(function(){
 		validateCharacterName();
 	});
 	
@@ -34,59 +34,55 @@ $(document).ready(function() {
 	 * I don't know what else I want to verify. First, it was important that my "required fields" aren't null & have at least 3 signs:
 	 */
 	function validateEmail(){					
-		var inputField_Length = $('#' + 'persoenlicheDaten_email').val().length;
+		var inputField_Length = $('#email').val().length;
 		if(inputField_Length < 3 || inputField_Length > 20){
-			$('#' + 'persoenlicheDaten_email' + '_errorMessage').html("Das Pflichtfeld muss mindestens 3 Zeichen lang sein.");
-			$('#' + 'persoenlicheDaten_email' + '_errorMessage').show();
-			persoenlicheDaten_email_errorMessage = true;
+			$('#' + 'email_errorMessage').html("Das Pflichtfeld muss mindestens 3 Zeichen lang sein.").show();
+			email_errorMessage = true;
 		}else{
-			$('#' + 'persoenlicheDaten_email' + '_errorMessage').hide();
-			persoenlicheDaten_email_errorMessage = false;
+			$('#' + 'email_errorMessage').hide();
+			email_errorMessage = false;
 		}				
 	}
 	
 	function validatePassword(){					
-		var inputField_Length = $('#' + 'persoenlicheDaten_passwort').val().length;
+		var inputField_Length = $('#password').val().length;
 		if(inputField_Length < 3 || inputField_Length > 20){
-			$('#' + 'persoenlicheDaten_passwort' + '_errorMessage').html("Das Pflichtfeld muss mindestens 3 Zeichen lang sein.");
-			$('#' + 'persoenlicheDaten_passwort' + '_errorMessage').show();
-			persoenlicheDaten_passwort_errorMessage = true;
+			$('#' + 'password_errorMessage').html("Das Pflichtfeld muss mindestens 3 Zeichen lang sein.").show();
+			password_errorMessage = true;
 		}else{
-			$('#' + 'persoenlicheDaten_passwort' + '_errorMessage').hide();
-			persoenlicheDaten_passwort_errorMessage = false;
+			$('#' + 'password_errorMessage').hide();
+			password_errorMessage = false;
 		}				
 	}
 	
-	function validateCharacterName(){					
-		var inputField_Length = $('#' + 'charakter_vorname').val().length;
+	function validateCharacterName(){
+		var inputField_Length = $('#username').val().length;
 		if(inputField_Length < 3 || inputField_Length > 20){
-			$('#' + 'charakter_vorname' + '_errorMessage').html("Das Pflichtfeld muss mindestens 3 Zeichen lang sein.");
-			$('#' + 'charakter_vorname' + '_errorMessage').show();
-			charakter_vorname_errorMessage = true;
+			$('#' + 'username_errorMessage').html("Das Pflichtfeld muss mindestens 3 Zeichen lang sein.").show();
 		}else{
-			$('#' + 'charakter_vorname' + '_errorMessage').hide();
-			charakter_vorname_errorMessage = false;
+			$('#' + 'username_errorMessage').hide();
+            username_errorMessage = false;
 		}				
 	}
-	
+
 	// ------------------------------------------------------------------------------------------------------------------------
 	
-	// Here I'm using an AJAX request to check, if entered username (which is my "charakter vorname") is already taken:
-	$('#charakter_vorname').blur(function(){
-		var charakterVorname_username = $(this).val();
+	// Here I'm using an AJAX request to check, if entered username is already taken:
+	$('#username').blur(function(){
+		var username = $(this).val();
 		$.ajax({
 			url: "Main.php",
 			method: "POST",
-			data: {user_name: charakterVorname_username},
+			data: {user_name: username},
 			dataType: "text",
 			success: function(data){
 				// It's a dirty solution, which I will improve later:
 				if(data.includes("NO")){
-					$('#charakter_vorname_errorMessage2').html('Charakter Vorname ist bereits vergeben.');
-					charakter_vorname_errorMessage2 = true;
+					$('#username_errorMessage2').html('Benutzername ist bereits vergeben.');
+                    username_errorMessage2 = true;
 				}else{
-					$('#charakter_vorname_errorMessage2').html('Charakter Vorname ist verfügbar.')
-					charakter_vorname_errorMessage2 = false;
+					$('#username_errorMessage2').html('Benutzername ist verfügbar.');
+                    username_errorMessage2 = false;
 				}
 			}
 		});
@@ -100,7 +96,7 @@ $(document).ready(function() {
 		validatePassword();
 		validateCharacterName();
 		
-		if(charakter_vorname_errorMessage2 == false && charakter_vorname_errorMessage == false && persoenlicheDaten_passwort_errorMessage == false && persoenlicheDaten_email_errorMessage == false){
+		if(username_errorMessage2 == false && username_errorMessage == false && password_errorMessage == false && email_errorMessage == false){
 			return true;
 		}else{
 			return false;

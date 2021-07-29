@@ -9,12 +9,12 @@
 
         function getProfileData($id){
             // I will change "Vorname" to something else later:
-            $sql = "SELECT * FROM persoenliche_daten WHERE ID='$id'";
+            $sql = "SELECT * FROM users WHERE id ='$id'";
             return $sql;
         }
 
         function updateProfileData($value, $id){
-            $statement = $this->databaseConnection->prepare("UPDATE persoenliche_daten SET Vorname = ? WHERE ID = ?");
+            $statement = $this->databaseConnection->prepare("UPDATE users SET username = ? WHERE id = ?");
             $sql = $statement->execute(array($value, $id));
             return $sql;
         }

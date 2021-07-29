@@ -13,7 +13,7 @@ if((isset($_SESSION['login'])) && (!empty(session_id()))) {
     foreach ($userProfile->query($sql->getProfileData($_SESSION['id'])) as $row) {
         ?>
         <form action="Main.php" method="POST">
-            <p> <b>Vorname:</b> <?php echo $row['Vorname'] ?> </p>
+            <p> <b>Vorname:</b> <?php echo $row['username'] ?> </p>
             <p> <b>Vornamen ändern:</b> <input type="text" name="Vorname" id="<?php $_SESSION['id'] ?>"> <input type="submit" value="Speichern" name="updateVorname"> </p>
         </form>
 

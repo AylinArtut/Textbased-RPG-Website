@@ -14,6 +14,7 @@
 	}	
 
 	if(isset($_POST['user_name'])){
+        $registration = new Registration($databaseConnection->getConnectionToDatabase());
 		echo $registration->checking_CharakterVorname_Username_Availability();
 	}
 	

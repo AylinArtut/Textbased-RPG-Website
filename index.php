@@ -19,7 +19,18 @@ require_once("Navigation.php");
 <body>
 <div class="pageContainer">
     <div class="header">
+        <div id="login">
+            <form id="login_formular" action="Main.php" method="POST">
+                E-Mail:
+                <input type="email" id="email_forLogin" name="email_forLogin">
 
+                Passwort:
+                <input type="password" id="password_forLogin" name="password_forLogin">
+
+                <input type="submit" id="submit_login" name="submit_login" value="Login">
+
+            </form>
+        </div>
     </div>
 
     <div class="content">
@@ -37,19 +48,19 @@ require_once("Navigation.php");
                     //getting navigation for both (logged in + not logged in):
                     foreach ($navigation->query($sql->getNavigation(0)) as $row) {
                         ?>
-                        <li><a id= <?php echo $row["Bezeichnung"] ?> ".php"> <?php echo $row["Bezeichnung"] ?> </a></li>
+                        <li><a id= <?php echo $row["menuname"] ?> ".php"> <?php echo $row["menuname"] ?> </a></li>
                         <?php
                     }
                     foreach ($navigation->query($sql->getNavigation(1)) as $row) {
                         ?>
-                        <li><a id= <?php echo $row["Bezeichnung"] ?> ".php"> <?php echo $row["Bezeichnung"] ?> </a></li>
+                        <li><a id= <?php echo $row["menuname"] ?> ".php"> <?php echo $row["menuname"] ?> </a></li>
                         <?php
                     }
                 }else{
                     //getting navigation for "not logged" in user (with ID = 0):
                     foreach ($navigation->query($sql->getNavigation(0)) as $row) {
                         ?>
-                        <li><a id= <?php echo $row["Bezeichnung"] ?> ".php"> <?php echo $row["Bezeichnung"] ?> </a></li>
+                        <li><a id= <?php echo $row["menuname"] ?> ".php"> <?php echo $row["menuname"] ?> </a></li>
                         <?php
                     }
                 }
@@ -57,15 +68,50 @@ require_once("Navigation.php");
             </ul>
         </div>
                 <div id="contentMenu">
-                    Ich werde das CSS auf jedenfall noch verbessern.
+                    Ich werde das CSS auf jedenfall noch verbessern und die Registrierung kommt auch woanders hin. <br/>
+
+                    <!-- I will put registration-stuff somewhere else later. -->
+                    <div id="registration">
+                        <form id="registration_formular" action="Main.php" method="POST" enctype="multipart/form-data">
+
+                            <h1><b>Registrierung</b></h1>
+
+                            <p>Benutzername:<br>
+                            <input type="text" id="username" name="username"></p>
+                            <span id="username_errorMessage"></span>
+                            <span id="username_errorMessage2"></span>
+
+                            <p>E-Mail*:<br>
+                                <input type="email" id="email" name="email"></p>
+                            <span id="email_errorMessage"></span>
+
+                            <p>Passwort*:<br>
+                                <input type="password" id="password" name="password"></p>
+                            <span id="password_errorMessage"></span>
+
+                            <p>Geschlecht:<br>
+                                <select id="gender" name="gender">
+                                    <option value="maennlich">männlich</option>
+                                    <option value="weiblich">weiblich</option>
+                                </select></p>
+
+                            <p>Alter (Charakter ältert nicht "bei Zeit"):<br>
+                                <input type="text" id="age" name="age"></p>
+
+                            Bild Upload:<br>
+                                <input type="file" name="imagepath" id="imagepath">
+
+                            <input type="submit" id="submit_registration" name="submit_registration" value="Submit">
+                        </form>
+                    </div>
                 </div>
         </div>
         <div class="rightSide">
             <div class="profileBox"></div>
             <div class="gameBox"></div>
         </div>
+        </div>
     </div>
-
     <div class="footer">
         Copyright Aylin Artut
     </div>

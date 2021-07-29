@@ -9,7 +9,7 @@
 
         function getNavigation($status){
             // I will seperate database stuff later:
-            $sql = "SELECT Bezeichnung FROM navigation WHERE Status=" . $status;
+            $sql = "SELECT menuname FROM website_navigation WHERE logged_in=" . $status;
             return $sql;
         }
     }

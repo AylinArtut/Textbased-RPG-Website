@@ -11,17 +11,17 @@
 		
 		function userLogin($email){
 			// I will improve this part later:
-			$sql = "SELECT * FROM persoenliche_daten WHERE Email='$email'";
+			$sql = "SELECT * FROM users WHERE email='$email'";
 			
 			foreach ($this->databaseConnection->query($sql) as $row) {
-				if(($row['Email'] == $_POST['email_forLogin']) && (password_verify($_POST['password_forLogin'], $row['Passwort']))){
+				if(($row['email'] == $_POST['email_forLogin']) && (password_verify($_POST['password_forLogin'], $row['password']))){
 					// A redirect & what ever will happen after user is logged in will be built later:
 
                     // I'm creating a random number for this & hash it:
                     $randomNumber = rand(1,1000);
                     $_SESSION['login'] = password_hash($randomNumber, PASSWORD_ARGON2ID);
-                    $_SESSION['name'] = $row['Vorname'];
-                    $_SESSION['id'] = $row['ID'];
+                    $_SESSION['name'] = $row['username'];
+                    $_SESSION['id'] = $row['id'];
 					return "Der User wurde eingeloggt.";
 				}
 			}
