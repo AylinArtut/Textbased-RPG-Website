@@ -19,18 +19,24 @@ require_once("UserProfile.php");
 <body>
 <div class="pageContainer">
     <div class="header">
-        <div id="login">
-            <form id="login_formular" action="Main.php" method="POST">
-                E-Mail:
-                <input type="email" id="email_forLogin" name="email_forLogin">
+        <?php
+        if(!(isset($_SESSION['login'])) || (empty(session_id()))) {
+            ?>
+            <div id="login">
+                <form id="login_formular" action="Main.php" method="POST">
+                    E-Mail:
+                    <input type="email" id="email_forLogin" name="email_forLogin">
 
-                Passwort:
-                <input type="password" id="password_forLogin" name="password_forLogin">
+                    Passwort:
+                    <input type="password" id="password_forLogin" name="password_forLogin">
 
-                <input type="submit" id="submit_login" name="submit_login" value="Login">
+                    <input type="submit" id="submit_login" name="submit_login" value="Login">
 
-            </form>
-        </div>
+                </form>
+            </div>
+            <?php
+        }
+        ?>
     </div>
 
     <div class="content">
@@ -70,6 +76,9 @@ require_once("UserProfile.php");
                 <div id="contentMenu">
                     Ich werde das CSS auf jedenfall noch verbessern und die Registrierung kommt auch woanders hin. <br/>
 
+                    <?php
+                    if(!(isset($_SESSION['login'])) || (empty(session_id()))) {
+                    ?>
                     <!-- I will put registration-stuff somewhere else later. -->
                     <div id="registration">
                         <form id="registration_formular" action="Main.php" method="POST" enctype="multipart/form-data">
@@ -104,6 +113,9 @@ require_once("UserProfile.php");
                             <input type="submit" id="submit_registration" name="submit_registration" value="Submit">
                         </form>
                     </div>
+                        <?php
+                    }
+                    ?>
                 </div>
         </div>
         <div class="rightSide">
@@ -125,7 +137,6 @@ require_once("UserProfile.php");
                 ?>
             </div>
             <div class="gameBox"></div>
-        </div>
         </div>
     </div>
     <div class="footer">

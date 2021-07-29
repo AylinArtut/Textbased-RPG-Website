@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 29. Jul 2021 um 06:36
+-- Erstellungszeit: 30. Jul 2021 um 00:20
 -- Server-Version: 10.4.18-MariaDB
 -- PHP-Version: 7.3.27
 
@@ -78,7 +78,7 @@ INSERT INTO `website_navigation` (`id`, `menuname`, `logged_in`) VALUES
 (1, 'Spielkonzept', 0),
 (2, 'Regelwerk', 0),
 (3, 'Mitspieler', 1),
-(4, 'Zum Spiel', 1);
+(4, 'Spiel', 1);
 
 --
 -- Indizes der exportierten Tabellen
