@@ -24,6 +24,11 @@
         echo header("Location: index.php");
 	}
 
+    if(isset($_POST['submit_logout'])){
+        session_destroy();
+        echo header("Location: index.php");
+    }
+
 	// ------------------------------------------------------------------------------------------------------
     // I will very sure improve this part down up here later:
 

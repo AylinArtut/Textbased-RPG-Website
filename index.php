@@ -35,6 +35,14 @@ require_once("UserProfile.php");
                 </form>
             </div>
             <?php
+        }else{
+            ?>
+            <div id="logout">
+                <form id="logout" action="Main.php" method="POST">
+                    <input type="submit" id="submit_logout" name="submit_logout" value="Logout">
+                </form>
+            </div>
+        <?php
         }
         ?>
     </div>
@@ -138,7 +146,11 @@ require_once("UserProfile.php");
                 ?>
             </div>
             <div class="gameBox">
-                <a href="Profile.php">Zum Profil</a>
+                <?php
+                    if((isset($_SESSION['login'])) || (empty(session_id()))) {
+                        echo "<a href='Profile.php'>Zum Profil</a>";
+                    }
+                ?>
             </div>
         </div>
     </div>
