@@ -1,11 +1,11 @@
-# UselessWebsite
+# Website with text-based RPG
 
 **I did a lot of stuff, everything here is deprecated. I will make new screenshots & write features later.** :octocat:
 
 Ich habe früher mit ca. 12 Jahren textbasierte RPGs gespielt wie z.B. http://www.one-piece-rollenspiel.com/
 und sowas soll auch meine Webseite werden, nur dass es kein Forum ist, sondern eine für RPGs spezialisierte Webseite.
 
-Sobald ich das CSS gebessert habe, mache ich Screenshots & erneuere den Texthaufen hier drunter. ^-^
+Sobald ich das CSS gebessert habe, mache ich neue Screenshots & erneuere den Texthaufen hier drunter. ^-^
 
 -------------------------------------------------------------------------------------------------------------------
 
