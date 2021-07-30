@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 30. Jul 2021 um 03:11
+-- Erstellungszeit: 30. Jul 2021 um 05:09
 -- Server-Version: 10.4.18-MariaDB
 -- PHP-Version: 7.3.27
 
@@ -33,6 +33,14 @@ CREATE TABLE `game_entries` (
   `message` text DEFAULT NULL,
   `timestamp` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `game_entries`
+--
+
+INSERT INTO `game_entries` (`id`, `userid`, `message`, `timestamp`) VALUES
+(1, 1, 'Test-Eintrag und so.', '2021-07-30 02:26:40'),
+(2, 3, 'So, noch ein Eintrag. :)', '2021-07-30 02:30:37');
 
 -- --------------------------------------------------------
 
@@ -112,7 +120,7 @@ ALTER TABLE `website_navigation`
 -- AUTO_INCREMENT für Tabelle `game_entries`
 --
 ALTER TABLE `game_entries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`

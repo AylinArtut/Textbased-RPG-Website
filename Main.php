@@ -29,6 +29,13 @@
         echo header("Location: index.php");
     }
 
+    if(isset($_POST['submit_game'])){
+	    // Yes, I know. I have to put it in another class (I will do later):
+        $game = new UserProfile($databaseConnection->getConnectionToDatabase());
+        echo $game->makeGameEntry($_SESSION['id'], $_POST['game_textarea']);
+        //echo header("Location: index.php");
+    }
+
 	// ------------------------------------------------------------------------------------------------------
     // I will very sure improve this part down up here later:
 
