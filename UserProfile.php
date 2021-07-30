@@ -8,8 +8,12 @@
         }
 
         function getProfileData($id){
-            // I will change "Vorname" to something else later:
             $sql = "SELECT * FROM users WHERE id ='$id'";
+            return $sql;
+        }
+
+        function getAllPlayer(){
+            $sql = "SELECT username FROM users";
             return $sql;
         }
 
