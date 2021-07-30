@@ -1,5 +1,9 @@
 # UselessWebsite
 
+**I did a lot of stuff, everything here is deprecated. I will make new screenshots & write features later.** :octocat:
+
+-------------------------------------------------------------------------------------------------------------------
+
 **New Screenshot:**
 
 ![alt text](https://s20.directupload.net/images/210725/o48wu7m7.jpg) 
