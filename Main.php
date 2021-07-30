@@ -24,9 +24,41 @@
         echo header("Location: index.php");
 	}
 
-    if(isset($_POST['updateVorname'])){
+	// ------------------------------------------------------------------------------------------------------
+    // I will very sure improve this part down up here later:
+
+    if(isset($_POST['username'])){
+	    $userProfile = new UserProfile($databaseConnection->getConnectionToDatabase());
+	    echo $userProfile->updateProfileData("username", $_POST['changeAttribute'], $_SESSION['id']);
+        echo header("Location: index.php");
+    }
+
+    if(isset($_POST['email'])){
         $userProfile = new UserProfile($databaseConnection->getConnectionToDatabase());
-	    echo $userProfile->updateProfileData($_POST['Vorname'], $_SESSION['id']);
+        echo $userProfile->updateProfileData("email", $_POST['changeAttribute'], $_SESSION['id']);
+        echo header("Location: index.php");
+    }
+
+    if(isset($_POST['gender'])){
+        $userProfile = new UserProfile($databaseConnection->getConnectionToDatabase());
+        echo $userProfile->updateProfileData("gender", $_POST['changeAttribute'], $_SESSION['id']);
+        echo header("Location: index.php");
+    }
+
+    if(isset($_POST['age'])){
+        $userProfile = new UserProfile($databaseConnection->getConnectionToDatabase());
+        echo $userProfile->updateProfileData("age", $_POST['changeAttribute'], $_SESSION['id']);
+        echo header("Location: index.php");
+    }
+
+    if(isset($_POST['imagepath'])){
+        move_uploaded_file($_FILES["imagepath"]["tmp_name"], "Images/Profile_Images/". $_SESSION['name'] . ".jpg");
+        echo header("Location: index.php");
+    }
+
+    if(isset($_POST['password'])){
+        $userProfile = new UserProfile($databaseConnection->getConnectionToDatabase());
+        echo $userProfile->updatePassword($_POST['changeAttribute'], $_SESSION['id']);
         echo header("Location: index.php");
     }
 ?>

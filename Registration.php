@@ -54,7 +54,7 @@
 			// Storing image to my " Profile_Images " folder:
 			move_uploaded_file($file_location, $file_storing);
 			
-			// Now, the "path" from new image with its new name will be stored in "$charakter_bildpfad" (to store it to db later):	
+			// Now, the "path" from new image with its new name will be stored (to store it to db later):
 			$this->imagepath = $file_storing;
 		}
 		

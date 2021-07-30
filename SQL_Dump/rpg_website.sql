@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 30. Jul 2021 um 00:20
+-- Erstellungszeit: 30. Jul 2021 um 03:11
 -- Server-Version: 10.4.18-MariaDB
 -- PHP-Version: 7.3.27
 
@@ -56,7 +56,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `gender`, `age`, `imagepath`) VALUES
 (1, 'Hans', 'hans@hotmail.de', '$argon2id$v=19$m=65536,t=4,p=1$MktVaWxVMGt4dUJwSmFKbg$Rn/3DyRuLmK0/RaruOe6mLqDXx9aNERGdoU2yiHjC7U', 'maennlich', 30, 'Images/Profile_Images/Hans.jpg'),
-(2, 'Maria', 'maria@hotmail.de', '$argon2id$v=19$m=65536,t=4,p=1$WWlRWHM1aXZKS3VyRnFZNA$0boRN8Js2BS8VgLk+g6GUOd0b/XU/PIjQSpszQVPPzg', 'weiblich', 25, 'Images/Profile_Images/Maria.jpg');
+(2, 'Maria', 'maria@hotmail.de', '$argon2id$v=19$m=65536,t=4,p=1$WWlRWHM1aXZKS3VyRnFZNA$0boRN8Js2BS8VgLk+g6GUOd0b/XU/PIjQSpszQVPPzg', 'weiblich', 25, 'Images/Profile_Images/Maria.jpg'),
+(3, 'Eva', 'eva@hotmail.de', '$argon2id$v=19$m=65536,t=4,p=1$VklyTmxCSElWQUh1YTVkZQ$0VVuPMnolkipIHmPeI9pk1S1Sl9FEeI+v79pAgnGUiI', 'weiblich', 12, 'Images/Profile_Images/Eva.jpg');
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,7 @@ ALTER TABLE `game_entries`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `website_navigation`

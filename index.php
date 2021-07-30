@@ -131,12 +131,15 @@ require_once("UserProfile.php");
                     foreach ($userProfile->query($sql->getProfileData($_SESSION['id'])) as $row) {
                         ?>
                          <img src="<?php echo $row["imagepath"] ?>" width="150" height="150">
+                         <?php echo $row["username"] ?>
                         <?php
                     }
                 }
                 ?>
             </div>
-            <div class="gameBox"></div>
+            <div class="gameBox">
+                <a href="Profile.php">Zum Profil</a>
+            </div>
         </div>
     </div>
     <div class="footer">
