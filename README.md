@@ -6,11 +6,11 @@ Beispiel zu textbasierte Rollenspiele: http://www.one-piece-rollenspiel.com/
 
 -------------------------------------------------------------------------------------------------------------------
 
-**Funktionen (Startseite):** Login, Registrierung
+**Funktionen (Startseite):** Login, Registrierung.
 
 ![alt text](https://s20.directupload.net/images/210731/ynrw7vqb.jpg) 
 
-**Funktionen (eingeloggt):** Logout, User kann Einträge erstellen & Profilinformationen verändern, Profilbild von User wird angezeigt
+**Funktionen (eingeloggt):** Logout, User kann Einträge erstellen in "Spiel", Profilinformationen verändern in "zum Profil", Profilbild von User wird angezeigt, Liste aller Mitspieler werden in "Mitspieler" angezeigt.
 
 ![alt text](https://s20.directupload.net/images/210731/d8xk8js5.jpg) 
 
