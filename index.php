@@ -34,6 +34,8 @@ require_once("UserProfile.php");
 
                 </form>
             </div>
+            <!-- Kümmere mich später drum. -->
+            <a href='#'>Zur Registrierung</a>
             <?php
         }else{
             ?>
@@ -82,8 +84,6 @@ require_once("UserProfile.php");
             </ul>
         </div>
                 <div id="contentMenu">
-                    Ich werde das CSS auf jedenfall noch verbessern und die Registrierung kommt auch woanders hin. <br/>
-
                     <?php
                     if(!(isset($_SESSION['login'])) || (empty(session_id()))) {
                     ?>
@@ -138,8 +138,8 @@ require_once("UserProfile.php");
                     //getting navigation for both (logged in + not logged in):
                     foreach ($userProfile->query($sql->getProfileData($_SESSION['id'])) as $row) {
                         ?>
-                         <img src="<?php echo $row["imagepath"] ?>" width="150" height="150">
-                         <?php echo $row["username"] ?>
+                         <img src="<?php echo $row["imagepath"] ?>" width="200" height="160">
+                         <?php echo "<b> Benutzer: " . $row["username"] . "</b>"?>
                         <?php
                     }
                 }
@@ -155,7 +155,7 @@ require_once("UserProfile.php");
         </div>
     </div>
     <div class="footer">
-        Copyright Aylin Artut
+        Copyright Aylin Artut © 2021
     </div>
 </div>
 </body>
