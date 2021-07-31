@@ -14,7 +14,6 @@ Beispiel zu textbasierte Rollenspiele: http://www.one-piece-rollenspiel.com/
 
 ![alt text](https://s20.directupload.net/images/210731/d8xk8js5.jpg) 
 
-P.S.: Ich liebe Programmierung, aber ich kann kein CSS, ich hasse CSS & werde noch sehr viel Spaß mit CSS haben. CSS ist langweilig. :poop:
+**P.S.:** Ich liebe Programmierung, aber ich kann kein CSS, ich hasse CSS & werde noch sehr viel Spaß mit CSS haben. CSS ist langweilig. :poop:
 
-Aber bevor ich mir die Arbeit von Frameworks abnehmen lasse, möchte ich wissen, welche Arbeit mir dabei abgenommen wird<br/>
-und dazu gehört CSS lernen. :blush:
+Aber bevor ich mir die Arbeit von Frameworks abnehmen lasse, möchte ich wissen, welche Arbeit mir dabei abgenommen wird und dazu gehört CSS lernen. :blush:
