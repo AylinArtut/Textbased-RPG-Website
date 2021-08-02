@@ -5,6 +5,7 @@
 	require_once("Login.php");
 	require_once("DatabaseConnection.php");
     require_once("UserProfile.php");
+    require_once("Game.php");
 	
 	$databaseConnection = new DatabaseConnection();
 		
@@ -31,7 +32,7 @@
 
     if(isset($_POST['submit_game'])){
 	    // Yes, I know. I have to put it in another class (I will do later):
-        $game = new UserProfile($databaseConnection->getConnectionToDatabase());
+        $game = new Game($databaseConnection->getConnectionToDatabase());
         echo $game->makeGameEntry($_SESSION['id'], $_POST['game_textarea']);
         //echo header("Location: index.php");
     }

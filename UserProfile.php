@@ -17,19 +17,6 @@
             return $sql;
         }
 
-        // I will make for game-stuff another class later:
-
-        function makeGameEntry($userid, $message){
-            $query = "INSERT INTO game_entries (userid, message) VALUES (?, ?)";
-            $prepare = $this->databaseConnection->prepare($query);
-            $prepare->execute([$userid, $message]);
-        }
-
-        function getAllGameEntries(){
-            $sql = "SELECT users.username, users.imagepath, game_entries.timestamp, game_entries.message FROM game_entries LEFT JOIN users ON game_entries.userid = users.id";
-            return $sql;
-        }
-
         function updateProfileData($attribute, $value, $id){
             $statement = $this->databaseConnection->prepare("UPDATE users SET ".$attribute." = ? WHERE id = ?");
             $sql = $statement->execute(array($value, $id));
