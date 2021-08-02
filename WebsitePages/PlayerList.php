@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-require_once("DatabaseConnection.php");
-require_once("UserProfile.php");
+require_once("../SQL_Files/DatabaseConnection.php");
+require_once("../SQL_Files/User.php");
 
 $databaseConnection = new DatabaseConnection();
 $userProfile = $databaseConnection->getConnectionToDatabase();
 
-$sql = new UserProfile($userProfile);
+$sql = new User($userProfile);
 
 // I detect if user is logged in or not via Sessions:
 if((isset($_SESSION['login'])) && (!empty(session_id()))){

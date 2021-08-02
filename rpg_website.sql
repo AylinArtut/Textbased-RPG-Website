@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 30. Jul 2021 um 05:09
+-- Erstellungszeit: 02. Aug 2021 um 06:00
 -- Server-Version: 10.4.18-MariaDB
 -- PHP-Version: 7.3.27
 
@@ -76,6 +76,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `gender`, `age`, `im
 CREATE TABLE `website_navigation` (
   `id` int(11) NOT NULL,
   `menuname` varchar(50) DEFAULT NULL,
+  `filename` varchar(50) NOT NULL,
   `logged_in` tinyint(1) DEFAULT NULL COMMENT '1 = TRUE |\r\n0 = FALSE'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -83,11 +84,11 @@ CREATE TABLE `website_navigation` (
 -- Daten für Tabelle `website_navigation`
 --
 
-INSERT INTO `website_navigation` (`id`, `menuname`, `logged_in`) VALUES
-(1, 'Spielkonzept', 0),
-(2, 'Regelwerk', 0),
-(3, 'Mitspieler', 1),
-(4, 'Spiel', 1);
+INSERT INTO `website_navigation` (`id`, `menuname`, `filename`, `logged_in`) VALUES
+(1, 'Spielkonzept', 'GameConcept', 0),
+(2, 'Regelwerk', 'Rules', 0),
+(3, 'Mitspieler', 'PlayerList', 1),
+(4, 'Spiel', 'Game', 1);
 
 --
 -- Indizes der exportierten Tabellen

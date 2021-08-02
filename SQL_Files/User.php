@@ -1,5 +1,5 @@
 <?php
-    class UserProfile{
+    class User{
 
         private $databaseConnection;
 

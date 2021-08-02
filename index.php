@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-require_once("DatabaseConnection.php");
-require_once("Navigation.php");
-require_once("UserProfile.php");
+require_once("SQL_Files/DatabaseConnection.php");
+require_once("SQL_Files/Navigation.php");
+require_once("SQL_Files/User.php");
 ?>
 <html>
 <head>
@@ -64,19 +64,19 @@ require_once("UserProfile.php");
                             //getting navigation for both (logged in + not logged in):
                             foreach ($navigation->query($sql->getNavigation(0)) as $row) {
                                 ?>
-                                <li><a id= <?php echo $row["menuname"] ?> ".php"> <?php echo $row["menuname"] ?> </a></li>
+                                <li><a id= <?php echo $row["filename"] ?> ".php"> <?php echo $row["menuname"] ?> </a></li>
                                 <?php
                             }
                             foreach ($navigation->query($sql->getNavigation(1)) as $row) {
                                 ?>
-                                <li><a id= <?php echo $row["menuname"] ?> ".php"> <?php echo $row["menuname"] ?> </a></li>
+                                <li><a id= <?php echo $row["filename"] ?> ".php"> <?php echo $row["menuname"] ?> </a></li>
                                 <?php
                             }
                         }else{
                             //getting navigation for "not logged" in user (with ID = 0):
                             foreach ($navigation->query($sql->getNavigation(0)) as $row) {
                                 ?>
-                                <li><a id= <?php echo $row["menuname"] ?> ".php"> <?php echo $row["menuname"] ?> </a></li>
+                                <li><a id= <?php echo $row["filename"] ?> ".php"> <?php echo $row["menuname"] ?> </a></li>
                                 <?php
                             }
                         }
@@ -129,7 +129,7 @@ require_once("UserProfile.php");
                     <?php
                     $databaseConnection = new DatabaseConnection();
                     $userProfile = $databaseConnection->getConnectionToDatabase();
-                    $sql = new UserProfile($userProfile);
+                    $sql = new User($userProfile);
 
                     // I detect if user is logged in or not via Sessions & then I get navigation for correct access (stored in db):
                     if((isset($_SESSION['login'])) && (!empty(session_id()))) {

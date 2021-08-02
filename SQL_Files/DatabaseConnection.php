@@ -1,5 +1,6 @@
 <?php
 	class DatabaseConnection{
+
 		private $database_name = 'rpg_website';
 		private $database_host_name = 'localhost';
 		private $database_username = 'root';

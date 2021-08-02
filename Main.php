@@ -3,9 +3,9 @@
 
 	require_once("Registration.php");
 	require_once("Login.php");
-	require_once("DatabaseConnection.php");
-    require_once("UserProfile.php");
-    require_once("Game.php");
+	require_once("SQL_Files/DatabaseConnection.php");
+    require_once("SQL_Files/User.php");
+    require_once("SQL_Files/GameEntry.php");
 	
 	$databaseConnection = new DatabaseConnection();
 		
@@ -41,25 +41,25 @@
     // I will very sure improve this part down up here later:
 
     if(isset($_POST['username'])){
-	    $userProfile = new UserProfile($databaseConnection->getConnectionToDatabase());
+	    $userProfile = new User($databaseConnection->getConnectionToDatabase());
 	    echo $userProfile->updateProfileData("username", $_POST['changeAttribute'], $_SESSION['id']);
         echo header("Location: index.php");
     }
 
     if(isset($_POST['email'])){
-        $userProfile = new UserProfile($databaseConnection->getConnectionToDatabase());
+        $userProfile = new User($databaseConnection->getConnectionToDatabase());
         echo $userProfile->updateProfileData("email", $_POST['changeAttribute'], $_SESSION['id']);
         echo header("Location: index.php");
     }
 
     if(isset($_POST['gender'])){
-        $userProfile = new UserProfile($databaseConnection->getConnectionToDatabase());
+        $userProfile = new User($databaseConnection->getConnectionToDatabase());
         echo $userProfile->updateProfileData("gender", $_POST['changeAttribute'], $_SESSION['id']);
         echo header("Location: index.php");
     }
 
     if(isset($_POST['age'])){
-        $userProfile = new UserProfile($databaseConnection->getConnectionToDatabase());
+        $userProfile = new User($databaseConnection->getConnectionToDatabase());
         echo $userProfile->updateProfileData("age", $_POST['changeAttribute'], $_SESSION['id']);
         echo header("Location: index.php");
     }
@@ -70,7 +70,7 @@
     }
 
     if(isset($_POST['password'])){
-        $userProfile = new UserProfile($databaseConnection->getConnectionToDatabase());
+        $userProfile = new User($databaseConnection->getConnectionToDatabase());
         echo $userProfile->updatePassword($_POST['changeAttribute'], $_SESSION['id']);
         echo header("Location: index.php");
     }

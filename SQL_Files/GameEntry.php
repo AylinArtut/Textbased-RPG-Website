@@ -1,6 +1,6 @@
 <?php
-    class UserProfile
-    {
+    class GameEntry{
+
         private $databaseConnection;
 
         function __construct($databaseConnection)
