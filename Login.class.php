@@ -19,10 +19,10 @@
 
                     // I'm creating a random number for this & hash it:
                     $randomNumber = rand(1,1000);
-                    $_SESSION['login'] = password_hash($randomNumber, PASSWORD_ARGON2ID);
+                    $_SESSION['Login.class'] = password_hash($randomNumber, PASSWORD_ARGON2ID);
                     $_SESSION['name'] = $row['username'];
                     $_SESSION['id'] = $row['id'];
-					return "Der User wurde eingeloggt.";
+					return "Der User.class wurde eingeloggt.";
 				}
 			}
 		}

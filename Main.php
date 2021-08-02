@@ -1,11 +1,7 @@
 <?php
     session_start();
 
-	require_once("Registration.php");
-	require_once("Login.php");
-	require_once("SQL_Files/DatabaseConnection.php");
-    require_once("SQL_Files/User.php");
-    require_once("SQL_Files/GameEntry.php");
+    include("Includes/Autoloader.php");
 	
 	$databaseConnection = new DatabaseConnection();
 		

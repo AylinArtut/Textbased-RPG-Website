@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-require_once("SQL_Files/DatabaseConnection.php");
-require_once("SQL_Files/Navigation.php");
-require_once("SQL_Files/User.php");
+include("Includes/Autoloader.php");
 ?>
 <html>
 <head>
@@ -20,7 +18,8 @@ require_once("SQL_Files/User.php");
     <div class="pageContainer">
         <div class="header">
             <?php
-            if(!(isset($_SESSION['login'])) || (empty(session_id()))) {
+            // I will put the input of logged in stuff in another class later and then I only call method in if-part:
+            if(!(isset($_SESSION['Login.class'])) || (empty(session_id()))) {
                 ?>
                 <div id="login">
                     <form id="login_formular" action="Main.php" method="POST">
@@ -60,7 +59,7 @@ require_once("SQL_Files/User.php");
                         $sql = new Navigation($navigation);
 
                         // I detect if user is logged in or not via Sessions & then I get navigation for correct access (stored in db):
-                        if((isset($_SESSION['login'])) && (!empty(session_id()))){
+                        if((isset($_SESSION['Login.class'])) && (!empty(session_id()))){
                             //getting navigation for both (logged in + not logged in):
                             foreach ($navigation->query($sql->getNavigation(0)) as $row) {
                                 ?>
@@ -85,35 +84,35 @@ require_once("SQL_Files/User.php");
                 </div>
                 <div id="contentMenu">
                     <?php
-                    if(!(isset($_SESSION['login'])) || (empty(session_id()))) { ?>
+                    if(!(isset($_SESSION['Login.class'])) || (empty(session_id()))) { ?>
                         <!-- I will put registration-stuff somewhere else later. -->
                         <div id="registration">
                             <form id="registration_formular" action="Main.php" method="POST" enctype="multipart/form-data">
 
                                 <h1><b>Registrierung</b></h1>
 
-                                <p>Benutzername:<br>
+                                <p>Benutzername:<br/>
                                 <input type="text" id="username" name="username"></p>
                                 <span id="username_errorMessage"></span>
                                 <span id="username_errorMessage2"></span>
 
-                                <p>E-Mail*:<br>
+                                <p>E-Mail*:<br/>
                                     <input type="email" id="email" name="email"></p>
                                 <span id="email_errorMessage"></span>
 
-                                <p>Passwort*:<br>
+                                <p>Passwort*:<br/>
                                     <input type="password" id="password" name="password"></p>
                                 <span id="password_errorMessage"></span>
 
-                                <p>Geschlecht:<br>
+                                <p>Geschlecht:<br/>
                                     <select id="gender" name="gender">
                                         <option value="maennlich">männlich</option>
                                         <option value="weiblich">weiblich</option>
                                     </select></p>
 
-                                <p>Alter (Charakter ältert nicht "bei Zeit"):<br><input type="text" id="age" name="age"></p>
+                                <p>Alter (Charakter ältert nicht "bei Zeit"):<br/><input type="text" id="age" name="age"></p>
 
-                                Bild Upload:<br>
+                                Bild Upload:<br/>
                                 <input type="file" name="imagepath" id="imagepath">
 
                                 <input type="submit" id="submit_registration" name="submit_registration" value="Submit">
@@ -132,7 +131,7 @@ require_once("SQL_Files/User.php");
                     $sql = new User($userProfile);
 
                     // I detect if user is logged in or not via Sessions & then I get navigation for correct access (stored in db):
-                    if((isset($_SESSION['login'])) && (!empty(session_id()))) {
+                    if((isset($_SESSION['Login.class'])) && (!empty(session_id()))) {
                         //getting navigation for both (logged in + not logged in):
                         foreach ($userProfile->query($sql->getProfileData($_SESSION['id'])) as $row) {
                             ?>
@@ -145,7 +144,7 @@ require_once("SQL_Files/User.php");
                 </div>
                 <div class="gameBox">
                     <?php
-                        if((isset($_SESSION['login'])) || (empty(session_id()))) {
+                        if((isset($_SESSION['Login.class'])) || (empty(session_id()))) {
                             echo "<a href='Profile.php'>Zum Profil</a>";
                         }
                     ?>

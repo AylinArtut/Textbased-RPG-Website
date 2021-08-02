@@ -1,15 +1,14 @@
 <?php
     session_start();
 
-    require_once("SQL_Files/DatabaseConnection.php");
-    require_once("SQL_Files/User.php");
+    include("Includes/Autoloader.php");
 
     $databaseConnection = new DatabaseConnection();
     $userProfile = $databaseConnection->getConnectionToDatabase();
 
     $sql = new User($userProfile);
 
-if((isset($_SESSION['login'])) && (!empty(session_id()))) {
+if((isset($_SESSION['Login.class'])) && (!empty(session_id()))) {
     foreach ($userProfile->query($sql->getProfileData($_SESSION['id'])) as $row) {
         ?>
         <!-- I will improve this later! -->

@@ -3,9 +3,7 @@ session_start();
 
 // I will seperate & clean everything here later:
 
-require_once("../SQL_Files/DatabaseConnection.php");
-require_once("../SQL_Files/User.php");
-require_once("../SQL_Files/GameEntry.php");
+include("../Includes/Autoloader.php");
 ?>
 
 <div id="game">
@@ -22,7 +20,7 @@ $gameEntry = $databaseConnection->getConnectionToDatabase();
 
 $sql = new GameEntry($gameEntry);
 
-if((isset($_SESSION['login'])) && (!empty(session_id()))){
+if((isset($_SESSION['Login.class'])) && (!empty(session_id()))){
     foreach ($gameEntry->query($sql->getAllGameEntries()) as $row) {
         // I will of course improve this later & make it more pretty:
 
