@@ -13,18 +13,6 @@ body{
 	margin-top: 16px;
 }
 
-.content{
-	margin: 20px;
-	background-color: LightGrey;
-	border-radius: 5px;
-	height: 80%;
-	width: 98%;
-}
-
-.footer{
-	text-align: center;
-}
-
 .navigation{
 	width: 100%;
 	height: 7%;
@@ -60,6 +48,14 @@ li a {
 li a:hover {
 	background-color: darkseagreen;
 	border-radius: 5px;
+}
+
+.content{
+	margin: 20px;
+	background-color: LightGrey;
+	border-radius: 5px;
+	height: 80%;
+	width: 98%;
 }
 
 #contentMenu{
@@ -102,4 +98,8 @@ li a:hover {
 	float: right;
 	margin-right: 210px;
 	margin-top: 10px;
+}
+
+.footer{
+	text-align: center;
 }
