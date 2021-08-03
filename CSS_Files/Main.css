@@ -2,7 +2,7 @@ body{
 	background-color: DarkSeaGreen;
 }
 
-.header{
+.Page_Header{
 	height: 80px;
 	background-color: LightGrey;
 	border-radius: 5px;
@@ -13,7 +13,7 @@ body{
 	margin-top: 16px;
 }
 
-.navigation{
+.Page_Navigation{
 	width: 100%;
 	height: 7%;
 	background-color: grey;
@@ -50,7 +50,7 @@ li a:hover {
 	border-radius: 5px;
 }
 
-.content{
+.Page_Content{
 	margin: 20px;
 	background-color: LightGrey;
 	border-radius: 5px;
@@ -58,7 +58,7 @@ li a:hover {
 	width: 98%;
 }
 
-#contentMenu{
+#Main_Text_Content{
 	background-color: whitesmoke;
 	padding-left: 30px;
 	padding-top: 2px;
@@ -70,7 +70,7 @@ li a:hover {
 	margin-top: 10px;
 }
 
-.profileBox{
+.FirstSideBox_Right_Page_Content{
 	background-color: whitesmoke;
 	width: 200px;
 	height: 190px;
@@ -78,21 +78,21 @@ li a:hover {
 	margin-top: 11px;
 }
 
-.gameBox{
+.SecondSideBox_Right_Page_Content{
 	background-color: whitesmoke;
 	width: 200px;
 	height: 150px;
 	padding-top: 10px;
 }
 
-.leftSide{
+.Left_Page_Content{
 	height: auto;
 	margin: 3px 0px 10px 20px;
 	width: 86%;
 	float: left;
 }
 
-.rightSide{
+.Right_Page_Content{
 	width: 10px;
 	height: 78.2px;
 	float: right;
@@ -100,6 +100,6 @@ li a:hover {
 	margin-top: 10px;
 }
 
-.footer{
+.Page_Footer{
 	text-align: center;
 }

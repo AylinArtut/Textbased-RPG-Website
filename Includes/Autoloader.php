@@ -11,5 +11,4 @@
 
     spl_autoload_register( 'load_SQL_Classes');
     spl_autoload_register( 'load_Classes');
-
 ?>
