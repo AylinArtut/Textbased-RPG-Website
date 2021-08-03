@@ -1,9 +1,8 @@
 <?php
-session_start();
+    session_start();
 
-// I will seperate & clean everything here later:
-
-include("../Includes/Autoloader.php");
+    include("../Includes/Autoloader.php");
+    // I will seperate & clean everything here later:
 ?>
 
 <div id="game">
@@ -15,21 +14,21 @@ include("../Includes/Autoloader.php");
 </div>
 
 <?php
-$databaseConnection = new DatabaseConnection();
-$gameEntry = $databaseConnection->getConnectionToDatabase();
+    $databaseConnection = new DatabaseConnection();
+    $gameEntry = $databaseConnection->getConnectionToDatabase();
 
-$sql = new GameEntry($gameEntry);
+    $sql = new GameEntry($gameEntry);
 
-if((isset($_SESSION['Login.class'])) && (!empty(session_id()))){
-    foreach ($gameEntry->query($sql->getAllGameEntries()) as $row) {
-        // I will of course improve this later & make it more pretty:
+    if((isset($_SESSION['Login.class'])) && (!empty(session_id()))){
+        foreach ($gameEntry->query($sql->getAllGameEntries()) as $row) {
+            // I will of course improve this later & make it more pretty:
 
-        echo "<p><img src='" . $row["imagepath"] . "' width='150'" . "height='150'" . "></p>";
-        echo "<p> - Benutzername: " . $row["username"] . "</p>";
-        echo "<p> - Timestamp: " . $row["timestamp"] . "</p>";
-        echo "<p> - Spiel-Eintrag: " . $row["message"] . "</p>";
+            echo "<p><img src='" . $row["imagepath"] . "' width='150'" . "height='150'" . "></p>";
+            echo "<p> - Benutzername: " . $row["username"] . "</p>";
+            echo "<p> - Timestamp: " . $row["timestamp"] . "</p>";
+            echo "<p> - Spiel-Eintrag: " . $row["message"] . "</p>";
 
-        echo "-------------------------------------------------";
+            echo "-------------------------------------------------";
+        }
     }
-}
 ?>
