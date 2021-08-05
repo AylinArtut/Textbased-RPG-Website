@@ -1,7 +1,5 @@
-<div class="Right_Page_Content">
-
-    <div class="FirstSideBox_Right_Page_Content">
-        <?php
+<div id="Right_Page_Content">
+    <?php
         $databaseConnection = new DatabaseConnection();
         $userProfile = $databaseConnection->getConnectionToDatabase();
         $sql = new User($userProfile);
@@ -10,21 +8,17 @@
         if((isset($_SESSION['Login.class'])) && (!empty(session_id()))){
             //getting navigation for both (logged in + not logged in):
             foreach ($userProfile->query($sql->getProfileData($_SESSION['id'])) as $row){
-                ?>
+    ?>
                 <img src="<?php echo $row["imagepath"] ?>" width="200" height="160">
-                <?php
-                echo "<b> Benutzer: " . $row["username"] . "</b>";
+    <?php
+                    echo "<b> Benutzer: " . $row["username"] . "</b>";
             }
         }
-        ?>
-    </div>
-
-    <div class="SecondSideBox_Right_Page_Content">
-        <?php
+    ?>
+    <br/> <br/>
+    <?php
         if((isset($_SESSION['Login.class'])) || (empty(session_id()))){
-            echo "<a href='Profile.php'> Zum Profil </a>";
+            echo "<a id='UserProfile' href='#'> Zum Profil </a>";
         }
-        ?>
-    </div>
-
+    ?>
 </div>

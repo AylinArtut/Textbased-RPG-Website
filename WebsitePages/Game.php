@@ -8,7 +8,7 @@
 <div id="game">
     <form id="game_formular" action="../Main.php" method="POST">
         <h1><b>Spielbereich</b></h1><br/>
-        <textarea id="game_textarea" name="game_textarea" rows="20" cols="100"></textarea><br/>
+        <textarea id="game_textarea" name="game_textarea" rows="10" cols="50"></textarea><br/> <br/> <br/>
         <p><input type="submit" id="submit_game" name="submit_game" value="Text abschicken"></p>
     </form>
 </div>
