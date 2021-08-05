@@ -1,1 +1,1 @@
-Hier kommt später die Erklärung bzw. das Spielprinzip zum textbasierten RPG.
+In Bearbeitung.

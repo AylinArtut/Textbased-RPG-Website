@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 03. Aug 2021 um 03:25
+-- Erstellungszeit: 05. Aug 2021 um 05:41
 -- Server-Version: 10.4.18-MariaDB
 -- PHP-Version: 7.3.27
 
@@ -87,7 +87,28 @@ CREATE TABLE `user_permissions` (
 INSERT INTO `user_permissions` (`id`, `role`) VALUES
 (1, 'Admin'),
 (2, 'Moderator'),
-(3, 'User');
+(3, 'User'),
+(4, 'Not_Logged_In');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `website_contents`
+--
+
+CREATE TABLE `website_contents` (
+  `id` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `website_navigation_name` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `website_contents`
+--
+
+INSERT INTO `website_contents` (`id`, `text`, `website_navigation_name`) VALUES
+(1, 'Hier kommt später die Erklärung bzw. das Spielprinzip zum textbasierten RPG.', 1),
+(2, 'Hier kommt das Regelwerk zum Spiel.', 2);
 
 -- --------------------------------------------------------
 
@@ -99,18 +120,19 @@ CREATE TABLE `website_navigation` (
   `id` int(11) NOT NULL,
   `menuname` varchar(50) DEFAULT NULL,
   `filename` varchar(50) NOT NULL,
-  `logged_in` tinyint(1) DEFAULT NULL COMMENT '1 = TRUE |\r\n0 = FALSE'
+  `role` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `website_navigation`
 --
 
-INSERT INTO `website_navigation` (`id`, `menuname`, `filename`, `logged_in`) VALUES
-(1, 'Spielkonzept', 'GameConcept', 0),
-(2, 'Regelwerk', 'Rules', 0),
-(3, 'Mitspieler', 'PlayerList', 1),
-(4, 'Spiel', 'Game', 1);
+INSERT INTO `website_navigation` (`id`, `menuname`, `filename`, `role`) VALUES
+(1, 'Spielkonzept', 'GameConcept', 4),
+(2, 'Regelwerk', 'Rules', 4),
+(3, 'Mitspieler', 'PlayerList', 3),
+(4, 'Spiel', 'Game', 3),
+(5, 'Administration', 'Administration', 1);
 
 --
 -- Indizes der exportierten Tabellen
@@ -137,10 +159,18 @@ ALTER TABLE `user_permissions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `website_contents`
+--
+ALTER TABLE `website_contents`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_fk_website_navigation` (`website_navigation_name`);
+
+--
 -- Indizes für die Tabelle `website_navigation`
 --
 ALTER TABLE `website_navigation`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_user_permissions_navigation` (`role`);
 
 --
 -- AUTO_INCREMENT für exportierte Tabellen
@@ -162,13 +192,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `user_permissions`
 --
 ALTER TABLE `user_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT für Tabelle `website_contents`
+--
+ALTER TABLE `website_contents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT für Tabelle `website_navigation`
 --
 ALTER TABLE `website_navigation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints der exportierten Tabellen
@@ -185,6 +221,18 @@ ALTER TABLE `game_entries`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_id_user_permissions` FOREIGN KEY (`role`) REFERENCES `user_permissions` (`id`);
+
+--
+-- Constraints der Tabelle `website_contents`
+--
+ALTER TABLE `website_contents`
+  ADD CONSTRAINT `id_fk_website_navigation` FOREIGN KEY (`website_navigation_name`) REFERENCES `website_navigation` (`id`);
+
+--
+-- Constraints der Tabelle `website_navigation`
+--
+ALTER TABLE `website_navigation`
+  ADD CONSTRAINT `fk_id_user_permissions_navigation` FOREIGN KEY (`role`) REFERENCES `user_permissions` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

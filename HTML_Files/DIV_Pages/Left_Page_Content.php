@@ -47,5 +47,17 @@
     </ul>
 </div>
 <div id="Left_Page_Content">
+    <?php
+        // Later any clicked section will be load (getting text from DB), in progress:
 
+        $databaseConnection = new DatabaseConnection();
+        $websiteContents = $databaseConnection->getConnectionToDatabase();
+        $sql = new WebsiteContents($websiteContents);
+
+        if((isset($_SESSION['Login.class'])) && (!empty(session_id()))){
+            foreach ($websiteContents->query($sql->getWebsiteContent(1)) as $row){
+                echo $row["text"];
+            }
+        }
+    ?>
 </div>

@@ -1,1 +1,1 @@
-Hier kommt das Regelwerk zum Spiel.
+In Bearbeitung.
