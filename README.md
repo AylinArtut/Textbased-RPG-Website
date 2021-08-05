@@ -6,6 +6,7 @@ Beispiel zu textbasierte Rollenspiele: http://www.one-piece-rollenspiel.com/
 
 -------------------------------------------------------------------------------------------------------------------
 
+It's a little bit dirty in code, I will tidy up later. Hihi (^_^) ... <br/>
 **Screenshots sind wieder veraltet, später gibt es aktuelle Screenshots + Stand.**
 
 **Funktionen (Startseite):** Login, Registrierung.
