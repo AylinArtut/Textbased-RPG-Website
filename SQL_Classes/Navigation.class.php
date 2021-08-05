@@ -8,7 +8,7 @@
         }
 
         function getNavigation($status){
-            $sql = "SELECT menuname, filename FROM website_navigation WHERE logged_in=" . $status;
+            $sql = "SELECT menuname, filename, role FROM website_navigation WHERE role=" . $status;
             return $sql;
         }
     }

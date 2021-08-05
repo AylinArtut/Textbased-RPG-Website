@@ -9,23 +9,33 @@
             // I detect if user is logged in or not via Sessions & then I get navigation for correct access (stored in db):
             if((isset($_SESSION['Login.class'])) && (!empty(session_id()))){
                 //getting navigation for both (logged in + not logged in):
-                foreach ($navigation->query($sql->getNavigation(0)) as $row){
+                foreach ($navigation->query($sql->getNavigation(4)) as $row){
         ?>
                     <li>
                         <a id= <?php echo $row["filename"] ?> ".php"> <?php echo $row["menuname"] ?> </a>
                     </li>
         <?php
                 }
-                foreach ($navigation->query($sql->getNavigation(1)) as $row){
+                foreach ($navigation->query($sql->getNavigation(3)) as $row){
         ?>
                     <li>
                         <a id= <?php echo $row["filename"] ?> ".php"> <?php echo $row["menuname"] ?> </a>
                     </li>
         <?php
+                }
+                // I will improve this part later:
+                if($_SESSION['role'] == 1){
+                    foreach ($navigation->query($sql->getNavigation(1)) as $row){
+                        ?>
+                            <li>
+                                <a id= <?php echo $row["filename"] ?> ".php"> <?php echo $row["menuname"] ?> </a>
+                            </li>
+                        <?php
+                    }
                 }
             }else{
-                //getting navigation for "not logged" in user (with ID = 0):
-                foreach ($navigation->query($sql->getNavigation(0)) as $row){
+                //getting navigation for "not logged" in user:
+                foreach ($navigation->query($sql->getNavigation(4)) as $row){
         ?>
                     <li>
                         <a id= <?php echo $row["filename"] ?> ".php"> <?php echo $row["menuname"] ?> </a>

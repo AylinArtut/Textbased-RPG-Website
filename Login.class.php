@@ -22,6 +22,7 @@
                     $_SESSION['Login.class'] = password_hash($randomNumber, PASSWORD_ARGON2ID);
                     $_SESSION['name'] = $row['username'];
                     $_SESSION['id'] = $row['id'];
+                    $_SESSION['role'] = $row['role'];
 					return "Der User.class wurde eingeloggt.";
 				}
 			}
