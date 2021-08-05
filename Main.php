@@ -8,7 +8,7 @@
 	if (isset($_POST['submit_registration'])){	
 		$registration = new Registration($databaseConnection->getConnectionToDatabase());
 		echo $registration->storeDataInDatabase();
-	}	
+	}
 
 	if(isset($_POST['user_name'])){
         $registration = new Registration($databaseConnection->getConnectionToDatabase());
@@ -35,6 +35,16 @@
 
 	// ------------------------------------------------------------------------------------------------------
     // I will very sure improve this part down up here later:
+
+    if (isset($_POST['submit_gameConcept'])){
+        $websiteContents = new WebsiteContents($databaseConnection->getConnectionToDatabase());
+        echo $websiteContents->updateWebsiteContent($_POST['changeText'], 1);
+    }
+
+    if (isset($_POST['submit_rules'])){
+        $websiteContents = new WebsiteContents($databaseConnection->getConnectionToDatabase());
+        echo $websiteContents->updateWebsiteContent($_POST['changeText'], 2);
+    }
 
     if(isset($_POST['username'])){
 	    $userProfile = new User($databaseConnection->getConnectionToDatabase());

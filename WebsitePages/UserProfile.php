@@ -1,16 +1,8 @@
 <?php
-session_start();
+    session_start();
 
-include("../Includes/Autoloader.php");
-
-$databaseConnection = new DatabaseConnection();
-$userProfile = $databaseConnection->getConnectionToDatabase();
-
-$sql = new User($userProfile);
-
-if((isset($_SESSION['Login.class'])) && (!empty(session_id()))){
-    foreach ($userProfile->query($sql->getProfileData($_SESSION['id'])) as $row){
-        ?>
+    if((isset($_SESSION['Login.class'])) && (!empty(session_id()))){
+?>
         <!-- I will improve this later! -->
 
         <form action="Main.php" method="POST">
@@ -61,7 +53,6 @@ if((isset($_SESSION['Login.class'])) && (!empty(session_id()))){
                 <input type="text" name="changeAttribute"> <input type="submit" value="Speichern" name="password"> <br/> <br/> <br/>
             </p>
         </form>
-        <?php
+<?php
     }
-}
 ?>
