@@ -11,11 +11,11 @@ It's a little bit dirty in code, I will tidy up later. Hihi (^_^) ... <br/>
 
 **Funktionen (Startseite):** Login, Registrierung.
 
-![alt text](https://s20.directupload.net/images/210731/ynrw7vqb.jpg) 
+![alt text](https://i.ibb.co/LJTW9T6/Unbenannt.jpg) 
 
 **Funktionen (eingeloggt):** Logout, User kann Einträge erstellen in "Spiel", Profilinformationen verändern in "zum Profil", Profilbild von User wird angezeigt, Liste aller Mitspieler werden in "Mitspieler" angezeigt.
 
-![alt text](https://s20.directupload.net/images/210731/d8xk8js5.jpg) 
+![alt text](https://i.ibb.co/YjNp8TK/Unbenannnt.jpg) 
 
 **P.S.:** Ich liebe Programmierung, aber ich kann kein CSS, ich hasse CSS & werde noch sehr viel Spaß mit CSS haben. CSS ist langweilig. :poop:
 
